@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AGL" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="lib/AGLd" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+				<Environment>
+					<Variable name="SFML_SUFFIX" value="-d" />
+					<Variable name="TARGET" value="debug" />
+				</Environment>
+			</Target>
+			<Target title="Release">
+				<Option output="lib/AGL" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<Environment>
+					<Variable name="SFML_SUFFIX" value="" />
+					<Variable name="TARGET" value="release" />
+				</Environment>
+			</Target>
+			<Environment>
+				<Variable name="SFML_SHARED" value="1" />
+			</Environment>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++14" />
+			<Add option="-m64" />
+			<Add option="-mfpmath=sse -m128bit-long-double -msse3 -mmmx -mthreads -ftree-vectorize" />
+			<Add directory="../SFML/include" />
+		</Compiler>
+		<Linker>
+			<Add option="-m64" />
+			<Add library="sfml-network$(SFML_SUFFIX)" />
+			<Add library="sfml-audio$(SFML_SUFFIX)" />
+			<Add library="sfml-graphics$(SFML_SUFFIX)" />
+			<Add library="sfml-window$(SFML_SUFFIX)" />
+			<Add library="sfml-system$(SFML_SUFFIX)" />
+			<Add library="sfml-main$(SFML_SUFFIX)" />
+			<Add directory="../SFML/lib" />
+		</Linker>
+		<Unit filename="include/game.h" />
+		<Unit filename="src/game.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
