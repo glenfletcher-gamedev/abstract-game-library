@@ -1,6 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <iomanip>
 
 class Game
 {
@@ -40,7 +42,7 @@ class Game
 #define AGL_IMPLIEMENT_GAME(MY_GAME, ...) \
 int main(int argc, char *argv[]) \
 { \
-    Game::MyGame = new MY_GAME(__VA_ARGS__); \
+    Game::MyGame = new MY_GAME{__VA_ARGS__}; \
     if (!Game::MyGame->onInit()) { \
         delete Game::MyGame; \
         return EXIT_FAILURE; \
