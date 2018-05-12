@@ -1,13 +1,18 @@
 #include "game.h"
 
-Game::Game()
+Game::Game(GameObjectManager *objMgr)
 {
-    //ctor
+    if (objMgr) {
+        m_objects = objMgr;
+    } else {
+        m_objects = new GameObjectManager();
+    }
 }
 
 Game::~Game()
 {
     if (m_window) delete m_window;
+    if (m_objects) delete m_objects;
 }
 
 void Game::run() {
@@ -25,7 +30,6 @@ void Game::run() {
 
         sf::Event e;
         while (m_window->pollEvent(e)) {
-
             if (e.type == sf::Event::Closed) close();
             onEvent(e);
         }
@@ -50,3 +54,4 @@ void Game::run() {
 }
 
 Game *Game::MyGame = nullptr;
+

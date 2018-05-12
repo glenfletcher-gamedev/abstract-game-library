@@ -63,7 +63,11 @@
 			<Add directory="../SFML/lib" />
 		</Linker>
 		<Unit filename="include/game.h" />
+		<Unit filename="include/gameobject.h" />
+		<Unit filename="include/gameobjectmanager.h" />
 		<Unit filename="src/game.cpp" />
+		<Unit filename="src/gameobject.cpp" />
+		<Unit filename="src/gameobjectmanager.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
